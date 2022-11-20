@@ -1,0 +1,33 @@
+.schedule {
+  h3 {
+    font-size: 36px;
+    font-weight: 500;
+    color: #000;
+  }
+}
+.headContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  div {
+    margin-right: 25px;
+  }
+}
+.scheduleDates {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 40px;
+}
+.categories {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  margin-top: 45px;
+}
+.movies {
+  margin-top: 60px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+}

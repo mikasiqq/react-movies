@@ -1,0 +1,10 @@
+.ticketDescription {
+  display: flex;
+  flex-direction: row;
+  p + p {
+    margin-left: 40px;
+  }
+  p {
+    font-size: 14px;
+  }
+}

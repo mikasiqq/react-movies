@@ -1,0 +1,69 @@
+.movie {
+  display: flex;
+  margin-top: 10px;
+  p, span, a {
+    color: #000;
+    margin: 0;
+  }
+  span {
+    margin-right: 10px !important;
+    font-weight: bold;
+  }
+  button {
+    color:#fff;
+    cursor: pointer;
+    border: 1px solid #007bff;
+    background-color: #007bff;
+    border-radius: 0.2rem;
+    padding: 0.25rem 0.5rem;
+    &:hover {
+      border: 1px solid #0070e8;
+      background-color: #0070e8;
+    }
+  }
+}
+.movieDescription {
+  padding: 0 20px;
+}
+.movieTitle {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+}
+.movieGenres {
+  margin: 10px 0 !important;
+}
+.movieCountry {
+  display: flex;
+  margin-bottom: 15px !important;
+  p:first-of-type {
+    margin-right: 20px;
+  }
+}
+.movieLink {
+  position: relative;
+  transition: all 0.2s ease-out;
+
+  &:hover {
+    transform: translateY(-10px);
+  }
+}
+.movieAge {
+  position: absolute;
+  border-radius: 5px;
+  padding: 5px;
+  font-weight: bold;
+  bottom: 20px;
+  right: 10px;
+  color: #fff;
+
+}
+.eighteen {
+  background: #eb5757;
+}
+.sixteen {
+  background: #f2994a;
+}
+.twelve {
+  background: #6fcf97;
+}

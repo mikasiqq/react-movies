@@ -1,0 +1,19 @@
+.ticket {
+  background-color: rgb(37, 132, 240);
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  margin: 5px;
+  cursor: pointer;
+  &:hover {
+    scale: 120%;
+  }
+}
+.ticketNotAvailable {
+  background-color: rgb(160, 169, 181);
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  margin: 5px;
+  scale: 50%;
+}

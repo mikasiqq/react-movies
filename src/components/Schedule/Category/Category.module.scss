@@ -1,0 +1,23 @@
+.category {
+  cursor: pointer;
+  border-radius: 20px;
+  padding: 10px 15px;
+  margin: 0 10px;
+  background-color: #fff;
+  border: 2px solid #453a94;
+
+  span {
+    color: #453a94;
+    margin: 0;
+    font-weight: 500;
+    font-family: "Ubuntu", sans-serif;
+    font-size: 16px;
+  }
+}
+.active {
+  background-color: #453a94;
+  border: none;
+  span {
+    color: #fff;
+  }
+}
