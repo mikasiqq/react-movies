@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { movieActions } from '../../../store/movie-slice';
+import { movieActions } from '../../../store/slices/movie-slice';
 import classes from './Date.module.scss'
 
 const Date = ({id, day, date, active}) => {
@@ -11,10 +11,10 @@ const Date = ({id, day, date, active}) => {
   }
 
   return (
-    <div onClick={changeIsActive} className={`${classes.date} ${active ? classes.active : ''}`}>
+    <button onClick={changeIsActive} className={`${classes.date} ${active ? classes.active : ''}`}>
       <p>{day}</p>
       <span>{date}</span>
-    </div>
+    </button>
   );
 }
 

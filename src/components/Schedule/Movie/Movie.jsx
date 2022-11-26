@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { modalActions } from "../../../store/modal-slice";
+import { modalActions } from "../../../store/slices/modal-slice";
 import classes from "./Movie.module.scss";
 
 const Movie = ({ movie }) => {

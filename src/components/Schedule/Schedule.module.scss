@@ -13,6 +13,16 @@
     margin-right: 25px;
   }
 }
+.swiper {
+  button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  button + button {
+    margin-left: 10px;
+  }
+}
 .scheduleDates {
   display: flex;
   justify-content: space-between;

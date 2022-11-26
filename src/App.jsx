@@ -1,27 +1,26 @@
-import axios from 'axios';
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import Header from './components/Header/Header';
-import Main from './components/Main/Main';
-import Modal from './components/Modal/Modal';
-import Schedule from './components/Schedule/Schedule';
-import { getMoviesData, getMoviesDatesData } from './store/movie-actions';
+import { useDispatch } from 'react-redux';
+import { Route, Routes } from 'react-router';
+import SchedulePage from './pages/SchedulePage';
+import UserPage from './pages/UserPage';
+import { getMoviesData, getMoviesDatesData } from './store/actions/movie-actions';
+import { getOrders } from './store/actions/order-actions';
 
 function App() {
   const dispatch = useDispatch()
-  const showModal = useSelector(state => state.modal.showModal)
 
   useEffect(() => {
     dispatch(getMoviesData())
     dispatch(getMoviesDatesData())
+    dispatch(getOrders())
   }, [dispatch])
 
   return (
     <div className="wrapper">
-      <Header />
-      <Main />
-      <Schedule showModal />
-      {showModal && <Modal />}
+      <Routes>
+        <Route path='/' element={<SchedulePage />} />
+        <Route path='/orders' element={<UserPage />} />
+      </Routes>
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { movieActions } from '../../../store/movie-slice';
+import { movieActions } from '../../../store/slices/movie-slice';
 import classes from './Category.module.scss'
 
 const Categories = ({category}) => {

@@ -46,11 +46,22 @@
     color: #ee3333;
   }
 }
-.container > a {
-  color: rgb(184, 184, 184);
-  text-decoration: none;
-  &:hover {
-    text-decoration: underline;
+.links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  a:first-of-type {
+    color: rgb(184, 184, 184);
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  a:last-of-type {
+    svg {
+      margin-top: 5px;
+    }
   }
 }
 .dropdown {
