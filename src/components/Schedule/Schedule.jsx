@@ -7,18 +7,24 @@ import { useDispatch, useSelector } from "react-redux";
 import MovieSkeleton from "./Movie/MovieSkeleton";
 import DateSkeleton from "./Date/DateSkeleton";
 import { movieActions } from "../../store/slices/movie-slice";
+import { updateTickets } from "../../store/actions/modal-actions";
+import { orderActions } from "../../store/slices/order-slice";
 
 const Schedule = () => {
   const dispatch = useDispatch()
 
   const isLoading = useSelector((state) => state.movie.isLoading);
   const movies = useSelector((state) => state.movie.movies);
-  const scheduleDates = useSelector((state) => state.movie.scheduleDates);
   const scheduleCategories = useSelector(
     (state) => state.movie.scheduleCategories
   );
+  const scheduleDates = useSelector(
+    (state) => state.movie.scheduleDates
+  );
   const currentDate = useSelector((state) => state.movie.currentDate);
+  const currentDateId = useSelector((state) => state.movie.currentDateId);
   const curCategories = useSelector((state) => state.movie.curCategories);
+  const toOrder = useSelector((state) => state.order.toOrder);
 
   const [updatedMovies, setUpdatedMovies] = useState([]);
 
@@ -40,8 +46,6 @@ const Schedule = () => {
             curCategories[0] && categoriesId.includes(curCategories[1])
           )
         ) {
-          console.log(curCategories[0]);
-          console.log(categoriesId);
           setUpdatedMovies((prev) => [...prev, el]);
         } else if (
           curDateMovies.hasOwnProperty(el.id) &&
@@ -59,7 +63,11 @@ const Schedule = () => {
       });
     };
     updateMoviesHandler();
-  }, [currentDate, scheduleCategories, curCategories]);
+    if (toOrder === true) {
+      dispatch(updateTickets(scheduleDates, currentDateId))
+      dispatch(orderActions.putOrder())
+    }
+  }, [currentDate, scheduleCategories, curCategories, scheduleDates, toOrder]);
 
   return (
     <section className={classes.schedule}>

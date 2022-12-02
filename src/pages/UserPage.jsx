@@ -1,16 +1,16 @@
-import React, { Fragment } from 'react';
-import Header from '../components/Header/Header';
-import Main from '../components/Main/Main';
-import Orders from '../components/Orders/Orders';
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import Orders from "../components/Orders/Orders";
+import { getOrders } from "../store/actions/order-actions";
 
 const UserPage = () => {
-  return (
-    <Fragment>
-      <Header />
-      <Main />
-      <Orders />
-    </Fragment>
-  );
-}
+  const dispatch = useDispatch();
+  
+  useEffect(() => {
+    dispatch(getOrders());
+  }, [dispatch]);
+
+  return <Orders />;
+};
 
 export default UserPage;

@@ -1,0 +1,35 @@
+.movie {
+  display: flex;
+  flex-direction: row;
+}
+.movieDesc {
+  margin-left: 20px;
+  a {
+    color: #000;
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  p {
+    color: #000;
+    margin: 5px 0;
+  }
+  span {
+    color: #000;
+    font-size: 18px;
+    font-weight: 700;
+  }
+  div {
+    display: flex;
+    flex-direction: row;
+    p + p {
+      margin-left: 15px;
+    }
+  }
+  > p:last-of-type {
+    margin-top: 20px;
+  }
+}

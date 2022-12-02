@@ -124,12 +124,11 @@ const movieSlice = createSlice({
       }
     },
     replaceMovieTickets(state, action) {
-      const { movieId, tickets } = action.payload
-      console.log(movieId, tickets)
+      const { movieId, orderedTickets } = action.payload
       state.scheduleDates = state.scheduleDates.map((el) => {
         if (el.id === state.currentDateId) {
           for (const property in el.movies) {
-            if (property === movieId) el.movies[property] = tickets
+            if (property === movieId) el.movies[property] = orderedTickets
           }
         }
         return el;

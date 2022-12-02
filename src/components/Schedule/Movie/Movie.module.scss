@@ -67,3 +67,9 @@
 .twelve {
   background: #6fcf97;
 }
+.movieTitle {
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}

@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { modalActions } from "../../../store/slices/modal-slice";
 import classes from "./Movie.module.scss";
 
@@ -18,14 +19,14 @@ const Movie = ({ movie }) => {
 
   return (
     <div className={classes.movie}>
-      <a className={classes.movieLink} href="/">
+      <Link to={`/movies/${movie.id}`} className={classes.movieLink} href="/">
         <img width={200} height={300} src={movie.imageUrl} alt="Первый фильм" />
         <div className={`${classes.movieAge} ${ageRating}`}>
           {movie.categories.title}
         </div>
-      </a>
+      </Link>
       <div className={classes.movieDescription}>
-        <a className={classes.movieTitle}>{movie.title}</a>
+        <Link to={`/movies/${movie.id}`} className={classes.movieTitle}>{movie.title}</Link>
         <p className={classes.movieGenres}>{movie.category}</p>
         <div className={classes.movieCountry}>
           <p>{movie.country}</p>

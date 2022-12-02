@@ -9,8 +9,8 @@
 .container {
   display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   max-width: 1080px;
 }
 .logo a {
@@ -32,35 +32,18 @@
 .nav {
   display: flex;
   align-items: center;
-}
-.nav a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
-  margin: 10px;
-  text-transform: uppercase;
-  &:hover {
-    color: #ee3333;
-  }
-  &.active {
-    color: #ee3333;
-  }
-}
-.links {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  a:first-of-type {
-    color: rgb(184, 184, 184);
+  margin: 10px 20px;
+  a {
+    color: #fff;
     text-decoration: none;
+    font-weight: 500;
+    margin: 7.5px;
+    text-transform: uppercase;
     &:hover {
-      text-decoration: underline;
+      color: #ed0000;
     }
-  }
-  a:last-of-type {
-    svg {
-      margin-top: 5px;
+    &.active {
+      color: #ed0000;
     }
   }
 }

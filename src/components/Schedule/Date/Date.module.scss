@@ -7,6 +7,7 @@
   p {
     color: #2d9cdb;
     font-size: 18px;
+    font-family: 'Ubuntu';
     margin: 0;
 
   }
@@ -17,6 +18,10 @@
   }
   span {
     color: #000;
+    font-family: 'Ubuntu';
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 5px;
   }
 }
 .active p{
