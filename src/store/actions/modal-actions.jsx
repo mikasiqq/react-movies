@@ -7,7 +7,7 @@ export const postOrder = ({
   currentDate,
   movieTitle,
   movieImage,
-  movieTime
+  movieTime,
 }) => {
   return async () => {
     const postData = async () => {
@@ -19,23 +19,38 @@ export const postOrder = ({
         movieDate,
         movieTitle,
         movieImage,
-        movieTime
+        movieTime,
       });
     };
-    await postData();
+    try {
+      await postData();
+    } catch (err) {
+      alert("Ошибка при оплате билетов :(");
+      console.error(err);
+    }
   };
 };
 
 export const updateTickets = (scheduleDates, currentDateId) => {
   return async () => {
     const updateData = async () => {
-      const curDateIndex = scheduleDates.findIndex((el) => el.id === currentDateId)
-      const curDate = scheduleDates[curDateIndex]
-      const dateMovies = curDate.movies
-      await axios.put(`https://636fbf10bb9cf402c81eb9b5.mockapi.io/dates/${curDate.id}`, {
-        movies: dateMovies
-      })
+      const curDateIndex = scheduleDates.findIndex(
+        (el) => el.id === currentDateId
+      );
+      const curDate = scheduleDates[curDateIndex];
+      const dateMovies = curDate.movies;
+      await axios.put(
+        `https://636fbf10bb9cf402c81eb9b5.mockapi.io/dates/${curDate.id}`,
+        {
+          movies: dateMovies,
+        }
+      );
+    };
+    try {
+      await updateData();
+    } catch (err) {
+      alert("Ошибка при бронировании билетов :(");
+      console.error(err);
     }
-    await updateData()
-  }
-}
+  };
+};

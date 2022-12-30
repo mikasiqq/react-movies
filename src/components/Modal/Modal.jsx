@@ -56,6 +56,12 @@ const Modal = () => {
       dispatch(movieActions.replaceMovieTickets({ movieId, orderedTickets }));
     };
     orderedTicketsHandler();
+
+    if (!updatedTickets.length) {
+      hideModal();
+      return;
+    }
+
     dispatch(
       postOrder({
         dateOrder,
@@ -64,7 +70,7 @@ const Modal = () => {
         currentDate,
         movieTitle,
         movieImage,
-        movieTime
+        movieTime,
       })
     );
     dispatch(orderActions.putOrder());

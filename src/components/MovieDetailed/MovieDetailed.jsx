@@ -1,11 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import classes from "./MovieDetailed.module.scss";
 const MovieDetailed = ({ movieId }) => {
   const movie = useSelector((state) => state.movie.movies).filter(
     (el) => el.id === movieId
   )[0];
-  console.log(movie);
   return (
     movie && (
       <section className={classes.movieDetailed}>

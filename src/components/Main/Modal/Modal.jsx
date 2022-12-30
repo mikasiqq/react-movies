@@ -1,12 +1,11 @@
 import React from "react";
-import ReactPlayer from "react-player";
+import ReactPlayer from "react-player/youtube";
 
 import classes from "./Modal.module.scss";
 
-const Modal = ({hideModal, movieUrl}) => {
-
+const Modal = ({ hideModal, movieUrl }) => {
   const modalHandler = () => {
-    hideModal()
+    hideModal();
   };
 
   return (
@@ -15,7 +14,17 @@ const Modal = ({hideModal, movieUrl}) => {
         onClick={(e) => e.stopPropagation()}
         className={classes.modalContent}
       >
-        <ReactPlayer width={1200} height={600}  className={classes.player} url={movieUrl} />
+        <ReactPlayer
+          width="1000px"
+          height="600px"
+          config={{
+            youtube: {
+              playerVars: { autoplay: true, controls: 1 },
+            },
+          }}
+          className={classes.player}
+          url={movieUrl}
+        />
       </div>
     </div>
   );

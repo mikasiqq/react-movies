@@ -109,6 +109,17 @@ const movieSlice = createSlice({
             state.currentDateId = state.scheduleDates[searchedId - 1].id;
             state.currentDate = state.scheduleDates[searchedId - 1];
           }
+
+          if (searchedId === 0) {
+            state.scheduleDates[searchedId].isActive = false;
+            state.scheduleDates[state.scheduleDates.length - 1].isActive = true;
+
+            state.currentDateId =
+              state.scheduleDates[state.scheduleDates.length - 1].id;
+            state.currentDate =
+              state.scheduleDates[state.scheduleDates.length - 1];
+          }
+
           break;
         }
         case "swipeRight": {
@@ -119,16 +130,25 @@ const movieSlice = createSlice({
             state.currentDateId = state.scheduleDates[searchedId + 1].id;
             state.currentDate = state.scheduleDates[searchedId + 1];
           }
+
+          if (searchedId === state.scheduleDates.length - 1) {
+            state.scheduleDates[searchedId].isActive = false;
+            state.scheduleDates[0].isActive = true;
+
+            state.currentDateId = state.scheduleDates[0].id;
+            state.currentDate = state.scheduleDates[0];
+          }
+
           break;
         }
       }
     },
     replaceMovieTickets(state, action) {
-      const { movieId, orderedTickets } = action.payload
+      const { movieId, orderedTickets } = action.payload;
       state.scheduleDates = state.scheduleDates.map((el) => {
         if (el.id === state.currentDateId) {
           for (const property in el.movies) {
-            if (property === movieId) el.movies[property] = orderedTickets
+            if (property === movieId) el.movies[property] = orderedTickets;
           }
         }
         return el;
